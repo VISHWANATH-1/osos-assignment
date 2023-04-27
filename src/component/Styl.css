@@ -1,0 +1,22 @@
+*{
+    text-align: center;
+}
+.container{
+    margin-top: 100px;
+}
+.input_space{
+    margin-bottom: 10px;
+}
+input{
+    height: 30px;
+    width: 20%;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.btn{
+    height: 30px;
+    width: 15%;
+    background: rgb(18, 77, 121);
+    border: none;
+    border-radius: 10px;
+}

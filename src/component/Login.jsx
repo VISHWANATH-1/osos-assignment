@@ -1,34 +1,41 @@
 import React, {useRef } from 'react'
 import Movies from './Movies' ;
-const Login = () => {
+// import './Styl.css'
+const Login = (props) => {
 
+    const name =useRef();  
     const email=useRef();
     const password=useRef();
-    const getEmail=localStorage.getItem('emailData');
-    const getPassword=localStorage.getItem('passwordData');
-    const handleSubmit =()=>{
-        localStorage.setItem("emailData")
-        localStorage.setItem("passwordData")
+    const handleClick =()=>{
+      if(name.current.value&&email.current.value&&password.current.value)
+      {
+      localStorage.setItem("Name",name.current.value)
+      localStorage.setItem("emailData",email.current.value)
+      localStorage.setItem("passwordData",password.current.value)
+      alert("Account Created Sucessfully")
+      } 
     };
    
       
   return (
-    <>
+    <div>
     {
-        getEmail&&getPassword?<Movies />:
+        Login?<Movies/> :
     
-   <div className='login_form'>
-    <form onSubmit={handleSubmit} className="login">
-        <label>E-mail</label>
-        <input type="email" ref={email}/>
-        <label>Password</label>
-        <input type="password" ref={password}  />
-        <button className='btn' type='submit'>Login</button>
-    </form>
-    
-   </div>
+    <div className='container'>
+        <div>
+          <input placeholder='Name' type="text" ref={name} />
+        </div>
+        <div>
+          <input placeholder='Email' type="email" ref={email}/>
+        </div>
+        <div>
+          <input placeholder='Password' type="password" ref={password}/>
+        </div>   
+        <button className='btn' onClick={handleClick}>Login</button>
+    </div>
 }
-   </>
+   </div>
   )
 }
 export default Login

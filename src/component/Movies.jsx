@@ -1,10 +1,15 @@
 import React from 'react'
-import Moviesearch from './Moviesearch';
 const Movies = () => {
+  const handleClick=()=>{
+    localStorage.clear();
+    window.location.reload();
+}
   return (
     <div>
         <h1>Movies</h1>
-        <Moviesearch />
+        <div className='logout'>
+        <button onClick={handleClick}>Logout</button>
+     </div>
     </div>
   )
 }
